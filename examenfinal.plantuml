@@ -1,0 +1,58 @@
+@startuml 
+class Animal{
+    id:int
+    nombre:string
+    cuidador:string 
+    especie_id:int
+    recinto_id:int
+}
+ 
+class Cuidador{
+    id:int
+    nombre:string
+    
+}
+class Recinto{
+    id:int
+    nombre:string
+}
+class Especie{
+    id:int
+    nombre:string
+    recinto_id:int
+}
+ 
+class Actividad{
+    id:int
+    nombre:string
+    dia:int
+    horario:string 
+    descripcion:text
+
+}
+
+class ActividadAnimal{
+    actividad_id:int
+    animal_id:int
+}
+class EspecieCuidador{
+    cuidador_id:int
+    especie_id:int
+}
+
+
+
+
+ 
+ 
+Actividad  "1"--"*" ActividadAnimal
+ActividadAnimal "*"--"1" Animal 
+Cuidador "1"--"*" EspecieCuidador
+Especie "1"--"*" EspecieCuidador
+Especie "1"--"*" Animal
+Recinto "1"--"*" Especie 
+
+Recinto "1"--"*" Animal
+
+
+@enduml
